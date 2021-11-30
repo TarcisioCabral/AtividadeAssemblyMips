@@ -1,0 +1,44 @@
+.data
+# Criar um programa em Assembly que inverta a ordem dos elementos de um vetor de tamanho n.
+c: .word 3, 0, 1, 2, -6, -2, 4, 9, 3, 7, 5, -9, -15, -20, -87, 0
+.text
+li $s1, 30               # determinando o valor para $s1
+la $s2, c                # colocando o endereço do array em $s2
+li $t2, 10               # colocando o índice do array em $t2
+add $t2, $t2, $t2        # “2i”
+add $t2, $t2, $t2        # “4i”
+add $t1, $t2, $s2        # combinando os dois componentes do endereço
+lw $t0, 0 ( $t1 )        # obtendo o valor da célula do array
+add $s0, $s1, $t0        # executando a soma
+
+
+#Crie um programa para dividir dois números
+.text
+
+addi $s0, $s0, 20 
+addi $s1, $s1, 5
+addi $s4, $s4, 15
+add $t3, $t3, $s0
+loop:
+	sub $t3, $t3, $s1
+	
+	add $s2, $s2, 1 # dividir
+	
+	slt $s3,$t3, $s4 
+	bne $s3, 1, loop
+
+
+#Crie um programa para multiplicar dois números
+.text
+#valores
+addi $s0, $s0, 28
+addi $s1, $s1, 12
+addi $t1, $t1, 17
+loop:
+
+	add $t3, $t3, $s0
+	sub $s1, $s1, 1 
+	
+	slt $s3,$s1, $t1 
+	bne $s3, 1, loop 
+	
